@@ -1,0 +1,15 @@
+<div>
+    <div class="key-container">
+        <button class="btn btn-mini" (click) = "geneateTag(0)">p</button>
+        <button class="btn btn-mini" (click) = "geneateTag(1)">h1</button>
+        <button class="btn btn-mini" (click) = "geneateTag(2)">h2</button>
+        <button class="btn btn-mini" (click) = "geneateTag(3)">h3</button>
+        <button class="btn btn-mini" (click) = "geneateTag(4)">h4</button>
+        <button class="btn btn-mini" (click) = "geneateTag(5)">h5</button>
+        <button class="btn btn-mini" (click) = "geneateTag(6)">h6</button>
+        <button class="btn btn-mini" (click) = "geneateTag(7)">a</button>
+    </div>
+    <textarea name="edit" id="edit" [(ngModel)] = 'sketch'></textarea>
+    <button type="button" class="btn" (click) = "add()">Добавити</button>
+    <button type="button" class="btn" (click) = 'save()'>Зберегти</button>
+</div>

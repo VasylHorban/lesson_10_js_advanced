@@ -1,0 +1,8 @@
+div{
+    padding: 15px 25px;
+    height: 100%;
+    border-radius: 5px;
+    background: rgb(118, 119, 145);
+    overflow-x: hidden;
+    overflow-y: auto;
+}

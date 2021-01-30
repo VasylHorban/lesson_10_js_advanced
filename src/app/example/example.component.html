@@ -1,0 +1,12 @@
+<div class="container-page">
+    <div *ngIf= "isOpen" class="page">
+        <span (click) = "isOpen = false" class="red-btn"></span>
+        <div [innerHTML] = "sketch | sanitize"></div>
+    </div>
+    <div class="screen" *ngIf= "!isOpen">
+        <div class="screen-first">
+            <div class="screen-second"></div>
+        </div>
+        <span (click) = "isOpen = true" class="text-btn">Показати приклад</span>
+    </div>
+</div>

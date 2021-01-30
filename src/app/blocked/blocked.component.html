@@ -1,0 +1,9 @@
+<div class="block">
+    <h1>Програму заблоковано</h1>
+    <span class="description">Введіть пароль</span>
+    <label>
+        <span *ngIf = "!valid" class="alert"> * невірний пароль !</span>
+        <input  #password ngModel class="some" required [pattern]="password"  type="password">
+    </label>
+    <button class="btn" (click) = "check(password.value)">Розблокувати</button>
+</div>

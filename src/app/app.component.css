@@ -1,0 +1,32 @@
+.container{
+    width: 80%;
+    margin: 0 auto;
+}
+.window{
+    background-color: rgb(38, 38, 54);
+    box-shadow: -10px 5px 10px rgba(0,0,0,.3);
+    position: relative;
+    padding: 15px 20px;
+    border-radius: 5px;
+    height: 450px;
+    margin-top: 20px;
+}
+.btn-window {
+    height: 80px;
+}
+.first-window{
+    padding: 20px;
+}
+.second-window{
+    padding: 50px 20px;
+    height: auto
+    
+}
+.modal-container{
+    position: fixed;
+    background-color: rgba(0,0,0,.7);
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+}

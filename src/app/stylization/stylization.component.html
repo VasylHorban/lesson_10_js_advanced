@@ -1,0 +1,99 @@
+<form>
+
+  <div class="form-section">
+    <h4 class="form-headers">Розмір шрифту</h4>
+    <div class="form-inline">
+      <input (input)="onInput()" [(ngModel)]="styles['font-size']"  type="radio"
+        name="inlineRadioOptions" id="inlineRadio1" value="12px">
+      <label for="inlineRadio1">12px</label>
+    </div>
+    <div class="form-inline">
+      <input (input)="onInput()" [(ngModel)]="styles['font-size']"  type="radio"
+        name="inlineRadioOptions" id="inlineRadio2" value="14px">
+      <label for="inlineRadio2">14px</label>
+    </div>
+    <div class="form-inline">
+      <input (input)="onInput()" [(ngModel)]="styles['font-size']"  type="radio"
+        name="inlineRadioOptions" id="inlineRadio3" value="16px">
+      <label for="inlineRadio3">16px</label>
+    </div>
+    <div class="form-inline">
+      <input (input)="onInput()" [(ngModel)]="styles['font-size']" type="radio"
+        name="inlineRadioOptions" id="inlineRadio4" value="18px">
+      <label for="inlineRadio4">18px</label>
+    </div>
+    <div class="form-inline">
+      <input (input)="onInput()" [(ngModel)]="styles['font-size']" class="form-input" type="radio"
+        name="inlineRadioOptions" id="inlineRadio5" value="20px">
+      <label for="inlineRadio5">20px</label>
+    </div>
+    <div class="form-inline">
+      <input (input)="onInput()" [(ngModel)]="styles['font-size']" class="form-input" type="radio"
+        name="inlineRadioOptions" id="inlineRadio6" value="22px">
+      <label for="inlineRadio6">22px</label>
+    </div>
+    <div class="form-inline">
+      <input (input)="onInput()" [(ngModel)]="styles['font-size']" class="form-input" type="radio"
+        name="inlineRadioOptions" id="inlineRadio7" value="24px">
+      <label for="inlineRadio7">24px</label>
+    </div>
+  </div>
+
+
+  <div class="form-section">
+    <h4 class="form-headers">Шрифт</h4>
+    <div class="form-select">
+      <select (change)="onInput()" [(ngModel)]="styles['font-family']" name="select-font">
+        <option value='cursive'>Cursive</option>
+        <option value='fantasy'>Fantasy</option>
+        <option value='monospace'>Monospace</option>
+        <option value='sans-serif'>Sans-serif</option>
+      </select>
+    </div>
+  </div>
+
+  <div class="form-section">
+      <h4 class="form-headers">Колір</h4>
+
+      <div class="color-inline">
+        <label for="color-text">Колір тексту</label>
+        <input (input)="onInput()" [(ngModel)]="styles['color']" class="color-input" type="color"
+          name="text-color" id="color-text">
+      </div>
+      <div class="color-inline">
+        <label for="color-bg">Колір фону</label>
+        <input (input)="onInput()" [(ngModel)]="styles['background']" class="color-input" type="color"
+          name="bg-color" id="color-bg">
+      </div>
+
+    </div>
+
+  <div class="form-section">
+    <h4 class="form-headers">Стиль тексту</h4>
+
+    <div class="font-style">
+      <label for="f-bold" >Жирний </label>
+
+        <input name="f-weight" id="f-bold" class="form-check-input" type="checkbox"  (click)="checked.bold = !checked.bold;onChecked() ">
+        
+    </div>
+    <div class="font-style">
+      <label for="f-cursive" >Курсив </label>
+
+        <input name="f-cursive"  id="f-cursive" class="form-check-input" type="checkbox" (click)="checked.cursive = !checked.cursive;onChecked()"> 
+        
+    </div>
+
+    <div class="font-style">
+      <label for="f-line" >Підкреслиний </label>
+
+      <input name="f-line"  id="f-line" class="form-check-input" type="checkbox" (click)="checked.line = !checked.line;onChecked()"> 
+      
+  </div>
+
+  </div>
+
+
+</form>
+
+<app-colors (colorEvent) = "addColor($event)" class="colors" *ngIf = "openPalette"></app-colors>

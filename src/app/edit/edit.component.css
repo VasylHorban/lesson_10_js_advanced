@@ -1,0 +1,26 @@
+div{
+    position: relative;
+}
+textarea{
+    width: 100%;
+    resize: none;
+    min-height: 300px;
+    padding: 30px 10px;
+}
+button{
+    margin-right: 20px;
+    margin-top: 20px;
+}
+.btn-mini {
+    padding: 0;
+    margin-right: 5px;
+    width: 25px;
+    height: 25px;
+}
+.key-container{
+    position: absolute;
+    left: 50%;
+    margin-left: -117px;
+    top: -15px;
+
+}

@@ -1,0 +1,145 @@
+<h2 class="title">Що додамо?</h2>
+
+<div class="create-container">
+  <div class="switch-nav">
+    <button [class.active-switch]="showCode === 1" (click)="showCode = 1" class="btn-switch ">Table</button>
+    <button [class.active-switch]="showCode === 2" (click)="showCode = 2" class="btn-switch">List</button>
+  </div>
+
+  <div *ngIf="showCode === 1">
+    <form #formTable ="ngForm" onsubmit='return false'>
+
+      <div class="form-section">
+        <h4 class="form-headers">Ширина і висота комірки таблиці</h4>
+        <div class="form-item">
+          <label for="width-td" class="form-label">Ширина</label>
+          <input #tdWidth = "ngModel" required pattern="^[1-9]{1}[0-9]?$"  [(ngModel)]="table['width-td']" name="width-td" type="text" class="form-input" id="width-td"  >
+          <div *ngIf = "tdWidth.dirty && tdWidth.invalid" class="prompt">
+            <span>Введіть число в діапазоні 1..99</span>
+          </div>
+      
+        </div>
+        <div class="form-item">
+          <label for="height-td">Висота</label>
+          <input #tdHeight = "ngModel" required pattern="^[1-9]{1}[0-9]?$" required [(ngModel)]="table['height-td']" name="height-td" type="text" class="form-input" id="height-td">
+          <div *ngIf = "tdHeight.dirty && tdHeight.invalid" class="prompt">
+            <span>Введіть число в діапазоні 1..99</span>
+          </div>
+        </div>
+
+      </div>
+
+      <div class="form-section">
+        <h4 class="form-headers">Товщина, колір, тип лінії таблиці</h4>
+        <div class="form-item">
+          <label for="width-border">Товщина </label>
+          <input  #borderWidth = "ngModel" required pattern="^[1-9]{1}[0-9]?$" required class="form-input" [(ngModel)]="table['border-width']" name="border-width" type="text"
+            id="width-border">
+            <div *ngIf = "borderWidth.dirty && borderWidth.invalid" class="prompt">
+              <span>Введіть число в діапазоні 1..99</span>
+            </div>
+        </div>
+        <div class="form-item">
+          <label class="section-label" for="border-type">Тип лінії </label>
+          <div class="form-select">
+            <select [(ngModel)]="table['border-type']" name="type" id="border-type">
+              <option value="solid">solid</option>
+              <option value="dotted">dotted</option>
+              <option value="dashed">dashed</option>
+              <option value="double">double</option>
+            </select>
+          </div>
+        </div>
+        <div class="form-item">
+          <label for="border-color">Колір </label>
+          <input  class="form-input color-input" [(ngModel)]="table['border-color']" type="color" name="border-color"
+            id="border-color">
+           
+        </div>
+      </div>
+
+      <div class="form-section">
+        <h4 class="form-headers">Кількість рядків і стовбців</h4>
+        <div class="form-item">
+          <label required for="count-tr">Кількість рядків </label>
+          <input #countR = "ngModel" required pattern="^[1-9]{1}[0-9]?$" [(ngModel)]="table['count-tr']" type="text" name="count-r" class="form-input" id="count-tr">
+          <div *ngIf = "countR.dirty && countR.invalid" class="prompt">
+            <span>Введіть число в діапазоні 1..99</span>
+          </div>
+        </div>
+        <div class="form-item">
+          <label for="count-td">Кількість рядків</label>
+          <input #countD = "ngModel"  pattern="^[1-9]{1}[0-9]?$" required [(ngModel)]="table['count-td']" name="count-td" type="text" class="form-input" id="count-td">
+          <div *ngIf = "countD.dirty && countD.invalid" class="prompt">
+            <span>Введіть число в діапазоні 1..99</span>
+          </div>
+        </div>
+      </div>
+     <div *ngIf = "formTable.valid" class="btn-container">
+      <button  class="btn" (click)="sendTable()">Додати</button>
+     </div>
+    </form>
+  </div>
+
+
+  <div *ngIf="showCode === 2" class="list" id="list">
+
+    <form #formList = "ngForm" onsubmit='return false'>
+        <div class="form-section">
+            <h4 class="form-headers">
+                Тип списку
+            </h4>
+            <div class="form-item">
+                <input checked (click) = "showListCode = 1" name="switch-list" class="form-input" type="radio" id='switch-ol'>
+                <label for="switch-ol" >Нумерований </label>
+              </div>
+              <div class="form-item">
+                <input class="form-input" name="switch-list"  type="radio" id='switch-ul'>
+                <label (click) = "showListCode = 2" for="switch-ul" >Маркований </label>
+              </div>
+        </div>
+        <div class="form-section">
+        <h4 class="form-headers">Параметри списку </h4>
+        <div class="form-item">
+          <label for="count-li" >Кількість елементів</label>
+          <input #countLi = "ngModel" pattern="^[1-9]{1}[0-9]?$" class="form-input" name="count-li" [(ngModel)]="list['count-li']" type="text" id='count-li'>
+          <div *ngIf = "countLi.dirty && countLi.invalid" class="prompt">
+            <span>Введіть число в діапазоні 1..99</span>
+          </div>
+        </div>
+        <div *ngIf = "showListCode === 2" class="form-item">
+          <label class="form-input"  for="mark-type">Тип маркування</label>
+          <div class="form-select">
+          <select name='mark-type' [(ngModel)]="list['mark-type-ul']"  id="mark-type-ul">
+            <option value="circle">circle</option>
+            <option value="disc">disc</option>
+            <option value="square">square</option>
+            <option value="none">none</option>
+          </select>
+          </div>
+        </div>
+
+        <div *ngIf = "showListCode === 1" class="form-item">
+            <label class="form-input" for="mark-type">Тип маркування</label>
+            <div class="form-select">
+
+            <select name='mark-type-ol' [(ngModel)]="list['mark-type-ol']"  id="mark-type-ol">
+              <option value="decimal">Aрабські числа</option>
+              <option value="upper-roman">Римські числа</option>
+              <option value="lower-alpha">Литинські букви</option>
+              <option value="none">none</option>
+            </select>
+            </div>
+          </div>
+      </div>
+     
+      <div *ngIf = "formList.valid && countLi.value !== null && countLi.value !== '' " class="btn-container">
+      <button (click)="sendList(showListCode)" class="btn btn-create">Додати</button>
+    </div>
+    </form>
+  </div>
+</div>
+<div class="example-container">
+  <button class="btn" (click) = "exampleCheck()"> Подивитись на приклад</button>
+  <app-example [sketch] = "exampleSketch"></app-example>
+</div>

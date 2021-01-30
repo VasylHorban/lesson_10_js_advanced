@@ -1,0 +1,39 @@
+.block {
+    color: #fff;
+    width: 400px;
+
+    text-align: center;
+    box-shadow: 5px 5px 10px rgba(0,0, 0, .5);
+    padding: 15px;
+    background-color: rgb(65, 69, 80);
+    border-radius: 5px;
+    border: 1px solid rgb(92, 97, 112);
+    position: fixed;
+    left:  50%;
+    top: 50%;
+    margin-top: -100px;
+    margin-left: -200px;
+
+}
+h1{
+    margin: 20px 0;
+}
+label{
+    margin-top: 20px;
+    display: block;
+    position: relative;
+}
+
+button {
+    margin-top: 20px;
+}
+
+.ng-dirty:not(form) {
+    border: 2px solid rgb(76, 76, 175);
+}
+.alert{
+    color: rgb(212, 90, 90);
+    font-size: 16px;
+    position: absolute;
+    top: -18px;
+}
